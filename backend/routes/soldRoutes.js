@@ -6,7 +6,7 @@ const Sold = require('../models/soldModel');
 router.post('/', async (req, res) => {
     const { imeiNumber, amount, invoiceNumber, store, status, date } = req.body;
     const entry = await Entry.findOne({ imeiNumbers: imeiNumber });
-    
+
     if (entry) {
         entry.status = 'sold';
         await entry.save();
