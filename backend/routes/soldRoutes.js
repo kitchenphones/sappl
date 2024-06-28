@@ -1,12 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const Entry = require('../models/entryModel');
-const Sold = require('../models/soldModel');
-
-console.log('Requiring Entry and Sold models');
+const Entry = require('../models/entryModel'); // Correct path
+const Sold = require('../models/soldModel'); // Correct path
 
 router.post('/', async (req, res) => {
-    console.log('Received POST request');
     const { imeiNumber, amount, invoiceNumber, store, status, date } = req.body;
     const entry = await Entry.findOne({ imeiNumbers: imeiNumber });
 

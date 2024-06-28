@@ -1,3 +1,4 @@
+// backend/models/soldModel.js
 const mongoose = require('mongoose');
 
 const soldSchema = new mongoose.Schema({

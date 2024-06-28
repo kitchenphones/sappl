@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Entry = require('../models/entryModel');
+const Entry = require('../models/entryModel'); // Correct path
 
 router.post('/', async (req, res) => {
     const entry = new Entry(req.body);
