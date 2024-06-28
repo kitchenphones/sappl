@@ -10,9 +10,13 @@ const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+console.log('Connecting to MongoDB...');
+mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('Failed to connect to MongoDB', err));
+    .catch(err => {
+        console.error('Failed to connect to MongoDB', err);
+        process.exit(1); // Exit the process with failure
+    });
 
 app.use('/api/entry', entryRoutes);
 app.use('/api/sold', soldRoutes);
