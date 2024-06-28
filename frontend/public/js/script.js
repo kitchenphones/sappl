@@ -1,13 +1,3 @@
-function showEntryForm() {
-    document.getElementById('entry').style.display = 'block';
-    document.getElementById('sold').style.display = 'none';
-}
-
-function showSoldForm() {
-    document.getElementById('entry').style.display = 'none';
-    document.getElementById('sold').style.display = 'block';
-}
-
 document.getElementById('entryForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const username = document.getElementById('username').value;
@@ -26,7 +16,7 @@ document.getElementById('entryForm').addEventListener('submit', async (e) => {
             marketName: document.getElementById('marketName').value
         };
 
-        const response = await fetch('http://your-ec2-instance-public-dns:3000/api/entry', {
+        const response = await fetch('http://ec2-34-235-140-38.compute-1.amazonaws.com:3000/api/entry', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -52,7 +42,7 @@ document.getElementById('soldForm').addEventListener('submit', async (e) => {
         date: document.getElementById('soldDate').value,
     };
 
-    const response = await fetch('http://your-ec2-instance-public-dns:3000/api/sold', {
+    const response = await fetch('http://ec2-34-235-140-38.compute-1.amazonaws.com:3000/api/sold', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

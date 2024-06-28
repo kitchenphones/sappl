@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Entry = require('../models/entryModel'); // Correct path
-const Sold = require('../models/soldModel'); // Correct path
+const Entry = require('../models/entryModel');
+const Sold = require('../models/soldModel');
 
 router.post('/', async (req, res) => {
     const { imeiNumber, amount, invoiceNumber, store, status, date } = req.body;
